@@ -99,7 +99,7 @@ public class SelectPickerView: UIView {
     }
 
     private func setupView() {
-        UIApplication.shared.keyWindow?.addSubview(self)
+        PickerViewUtils.keyWindow?.addSubview(self)
         addOrentationObserver()
         self.frame = self.superview?.bounds ?? UIScreen.main.bounds
         self.addSubview(coverView)
@@ -194,7 +194,7 @@ extension SelectPickerView {
         if data.isEmpty {
             return nil
         }
-        UIApplication.shared.keyWindow?.endEditing(true)
+        PickerViewUtils.keyWindow?.endEditing(true)
         let view = SelectPickerView()
         view.titleArr = data
         if let indexArr = defaultSelectedIndexs {
@@ -235,7 +235,7 @@ extension SelectPickerView {
         if data.isEmpty {
             return nil
         }
-        UIApplication.shared.keyWindow?.endEditing(true)
+        PickerViewUtils.keyWindow?.endEditing(true)
         let view = SelectPickerView()
         view.titleArr = data
         if let index = defaultSelectedIndex, index >= 0, index < data.count {

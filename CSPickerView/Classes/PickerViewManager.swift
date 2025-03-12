@@ -154,7 +154,7 @@ extension PickerViewManager {
 extension PickerViewManager {
     /// 通过window 弹出view
     private func show(completion: ((Bool) -> Void)? = nil) {
-        let window = UIApplication.shared.keyWindow
+        let window = PickerViewUtils.keyWindow
         guard let currentWindow = window else { return }
         currentWindow.addSubview(self)
         UIView.animate(withDuration: PickerViewConfig.shared.animateDuration, animations: { [weak self] in
@@ -197,7 +197,7 @@ extension PickerViewManager {
             assertionFailure("data is empty")
             return
         }
-        guard let currentWindow = UIApplication.shared.keyWindow else { return }
+        guard let currentWindow = PickerViewUtils.keyWindow else { return }
         currentWindow.endEditing(true)
         let pickViewManager = PickerViewManager(frame: currentWindow.bounds, toolBarTitle: toolBarTitle, singleColData: data, defaultSelectedIndex: defaultSelectedIndex, cancelAction: cancelAction, sureAction: sureAction)
         pickViewManager.show()
@@ -218,7 +218,7 @@ extension PickerViewManager {
             assertionFailure("data is empty")
             return
         }
-        guard let currentWindow = UIApplication.shared.keyWindow else { return }
+        guard let currentWindow = PickerViewUtils.keyWindow else { return }
         currentWindow.endEditing(true)
         let pickViewManager = PickerViewManager(frame: currentWindow.bounds, toolBarTitle: toolBarTitle, multipleColsData: data, defaultSelectedIndexs: defaultSelectedIndexs, cancelAction: cancelAction, sureAction: sureAction)
         pickViewManager.show()
@@ -239,7 +239,7 @@ extension PickerViewManager {
             assertionFailure("data is empty")
             return
         }
-        guard let currentWindow = UIApplication.shared.keyWindow else { return }
+        guard let currentWindow = PickerViewUtils.keyWindow else { return }
         currentWindow.endEditing(true)
         let pickViewManager = PickerViewManager(frame: currentWindow.bounds, toolBarTitle: toolBarTitle, multipleAssociatedColsData: data, defaultSelectedValues: defaultSelectedValues, cancelAction: cancelAction, sureAction: sureAction)
         pickViewManager.show()
@@ -256,7 +256,7 @@ extension PickerViewManager {
                                        defaultSelectedValues: [String]?,
                                        cancelAction: BtnAction?,
                                        sureAction: MultipleDoneAction?) {
-        guard let currentWindow = UIApplication.shared.keyWindow else { return }
+        guard let currentWindow = PickerViewUtils.keyWindow else { return }
         currentWindow.endEditing(true)
         let pickViewManager = PickerViewManager(frame: currentWindow.bounds, toolBarTitle: toolBarTitle, type: type, defaultSelectedValues: defaultSelectedValues, cancelAction: cancelAction, sureAction: sureAction)
         pickViewManager.show()
@@ -271,7 +271,7 @@ extension PickerViewManager {
                                      datePickerSetting: DatePickerSetting = DatePickerSetting(),
                                      cancelAction: BtnAction?,
                                      sureAction: DateDoneAction?) {
-        guard let currentWindow = UIApplication.shared.keyWindow else { return }
+        guard let currentWindow = PickerViewUtils.keyWindow else { return }
         currentWindow.endEditing(true)
         let pickViewManager = PickerViewManager(frame: currentWindow.bounds, toolBarTitle: toolBarTitle, datePickerSetting: datePickerSetting, cancelAction: cancelAction, sureAction: sureAction)
         pickViewManager.show()

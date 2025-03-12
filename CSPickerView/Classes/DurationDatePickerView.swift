@@ -162,7 +162,7 @@ open class DurationDatePickerView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         addOrentationObserver()
-        UIApplication.shared.keyWindow?.addSubview(self)
+        PickerViewUtils.keyWindow?.addSubview(self)
         self.frame = self.superview?.bounds ?? UIScreen.main.bounds
         self.addSubview(coverView)
         self.addSubview(datePicker)
@@ -203,7 +203,7 @@ extension DurationDatePickerView {
     ///   - endDate: 结束时间
     ///   - dateType: 时间类型
     public class func getPopupView(startDate: Date, endDate: Date, dateType: DurationDatePickerViewDateType = .YMD) -> DurationDatePickerView {
-        UIApplication.shared.keyWindow?.endEditing(true)
+        PickerViewUtils.keyWindow?.endEditing(true)
         let popupView = DurationDatePickerView(frame: UIScreen.main.bounds)
 
         popupView.datePicker.setDate(startDate, animated: false)

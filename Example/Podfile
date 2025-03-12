@@ -4,7 +4,6 @@ install! 'cocoapods', :warn_for_unused_master_specs_repo => false
 
 target 'CSPickerView_Example' do
   pod 'CSPickerView', :path => '../'
-#  pod 'CSPickerView', :path => '../', :subspecs => ["source"]
 
   pod 'SnapKit', '4.2.0'
   pod 'LookinServer', :configurations => ['Debug'] # 查看UI，只编译进debug版本
